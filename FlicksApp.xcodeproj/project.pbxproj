@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6722369A84E40679D9C1D64C /* Pods_FlicksApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D77AD12997FA0E3562687858 /* Pods_FlicksApp.framework */; };
 		991562511C403604006D348A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991562501C403604006D348A /* AppDelegate.swift */; };
 		991562561C403604006D348A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 991562541C403604006D348A /* Main.storyboard */; };
 		991562581C403604006D348A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 991562571C403604006D348A /* Assets.xcassets */; };
 		9915625B1C403604006D348A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 991562591C403604006D348A /* LaunchScreen.storyboard */; };
 		991562631C42A563006D348A /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991562621C42A563006D348A /* MoviesViewController.swift */; };
+		991562691C42DDB4006D348A /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 991562681C42DDB4006D348A /* MovieCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,10 @@
 		9915625A1C403604006D348A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9915625C1C403604006D348A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		991562621C42A563006D348A /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		991562681C42DDB4006D348A /* MovieCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
+		C457366DF522714A8E678B4D /* Pods-FlicksApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlicksApp/Pods-FlicksApp.release.xcconfig"; sourceTree = "<group>"; };
+		CCF6151C97526B3E91E20122 /* Pods-FlicksApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlicksApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlicksApp/Pods-FlicksApp.debug.xcconfig"; sourceTree = "<group>"; };
+		D77AD12997FA0E3562687858 /* Pods_FlicksApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlicksApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6722369A84E40679D9C1D64C /* Pods_FlicksApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				9915624F1C403604006D348A /* FlicksApp */,
 				9915624E1C403603006D348A /* Products */,
+				ACA1F15A0820F82465464CEB /* Pods */,
+				CA013990495DC45E8C34317F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +63,48 @@
 		9915624F1C403604006D348A /* FlicksApp */ = {
 			isa = PBXGroup;
 			children = (
+				991562671C42DD45006D348A /* View Controllers */,
+				991562641C42DCCD006D348A /* Views */,
 				991562501C403604006D348A /* AppDelegate.swift */,
 				991562541C403604006D348A /* Main.storyboard */,
 				991562571C403604006D348A /* Assets.xcassets */,
 				991562591C403604006D348A /* LaunchScreen.storyboard */,
 				9915625C1C403604006D348A /* Info.plist */,
-				991562621C42A563006D348A /* MoviesViewController.swift */,
 			);
 			path = FlicksApp;
+			sourceTree = "<group>";
+		};
+		991562641C42DCCD006D348A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				991562681C42DDB4006D348A /* MovieCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		991562671C42DD45006D348A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				991562621C42A563006D348A /* MoviesViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		ACA1F15A0820F82465464CEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCF6151C97526B3E91E20122 /* Pods-FlicksApp.debug.xcconfig */,
+				C457366DF522714A8E678B4D /* Pods-FlicksApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA013990495DC45E8C34317F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D77AD12997FA0E3562687858 /* Pods_FlicksApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +114,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9915625F1C403604006D348A /* Build configuration list for PBXNativeTarget "FlicksApp" */;
 			buildPhases = (
+				1DFF9746ECF1F0B08443AA63 /* Check Pods Manifest.lock */,
 				991562491C403603006D348A /* Sources */,
 				9915624A1C403603006D348A /* Frameworks */,
 				9915624B1C403603006D348A /* Resources */,
+				CD7DECD17AB02D4D08A70D2C /* Embed Pods Frameworks */,
+				E19F81C03EB8CE661FF0C229 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +177,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1DFF9746ECF1F0B08443AA63 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD7DECD17AB02D4D08A70D2C /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlicksApp/Pods-FlicksApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E19F81C03EB8CE661FF0C229 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FlicksApp/Pods-FlicksApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		991562491C403603006D348A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -138,6 +232,7 @@
 			files = (
 				991562511C403604006D348A /* AppDelegate.swift in Sources */,
 				991562631C42A563006D348A /* MoviesViewController.swift in Sources */,
+				991562691C42DDB4006D348A /* MovieCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +341,7 @@
 		};
 		991562601C403604006D348A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCF6151C97526B3E91E20122 /* Pods-FlicksApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlicksApp/Info.plist;
@@ -257,6 +353,7 @@
 		};
 		991562611C403604006D348A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C457366DF522714A8E678B4D /* Pods-FlicksApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FlicksApp/Info.plist;
@@ -285,6 +382,7 @@
 				991562611C403604006D348A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
