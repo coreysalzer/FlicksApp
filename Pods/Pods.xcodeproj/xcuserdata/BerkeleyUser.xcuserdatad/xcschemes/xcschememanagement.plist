@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EZLoadingActivity.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FlicksApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B163E8761EE6A205CD0C26465CD81728</key>
+		<key>7AF6340252FD007EE4718EA89A0E3F37</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>903A108934E1A089B76F443DC34C8E54</key>
 		<dict>
 			<key>primary</key>
 			<true/>

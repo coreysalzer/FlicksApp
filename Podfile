@@ -6,6 +6,8 @@ use_frameworks!
 target 'FlicksApp' do
 
 pod 'AFNetworking'
+pod 'EZLoadingActivity'
+
 
 end
 

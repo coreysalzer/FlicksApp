@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C1A1C3631787E5C222176C11'
-               BlueprintName = 'AFNetworking'
+               BlueprintIdentifier = '035355C9D1E4164334F9AC67'
+               BlueprintName = 'EZLoadingActivity'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'AFNetworking.framework'>
+               BuildableName = 'EZLoadingActivity.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
