@@ -37,6 +37,10 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Describe any challenges encountered while building the app.
 
+1. Doing the fade in animation for the images
+2. Detecting a network error
+3. Responding to a network error
+
 ## License
 
     Copyright [2016] [Salzer]
