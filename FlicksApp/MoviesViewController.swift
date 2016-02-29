@@ -17,20 +17,13 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
     
     var apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     
-    var movies: [NSDictionary]?
     
-     var refreshControl: UIRefreshControl!
+    var movies: [NSDictionary]?
+    var refreshControl: UIRefreshControl!
+    var endpoint: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        delay(15, closure: {
-            self.apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8edX"
-            
-            self.delay(15, closure: {
-                self.apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-            })
-        })
         
         networkErrorView.superview?.bringSubviewToFront(networkErrorView)
         
@@ -41,17 +34,14 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
-    }
-    
-    override func viewDidAppear(animated: Bool) {
         EZLoadingActivity.show("Loading...", disableUI: true)
         getMovies()
     }
     
+    override func viewDidAppear(animated: Bool) {}
+    
     func getMovies() {
-        //var apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
-
-        let url = NSURL(string:"https://api.themoviedb.org/3/movie/now_playing?api_key=\(apiKey)")
+        let url = NSURL(string:"https://api.themoviedb.org/3/movie/\(endpoint)?api_key=\(apiKey)")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
             configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
@@ -68,7 +58,7 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                             
                             self.movies = responseDictionary["results"] as? [NSDictionary]
                             
-                            if responseDictionary["results"] == nil {
+                            if self.movies == nil {
                                 self.networkErrorView.hidden = false
                                 EZLoadingActivity.hide(success: false, animated: true)
                             }
@@ -77,7 +67,6 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
                                 self.networkErrorView.hidden = true
                                 EZLoadingActivity.hide(success: true, animated: true)
                             }
-                            
                             
                     }
                 }
@@ -122,44 +111,52 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
             let movie = movies![indexPath.row]
             let title = movie["title"] as! String
             let overview = movie["overview"] as! String
-            let posterPath = movie["poster_path"] as! String
-            
-            let baseUrl = "http://image.tmdb.org/t/p/w500"
-            
-            let imageUrl = NSURL(string: baseUrl + posterPath)
-            
             
             cell.titleLabel.text = title
             cell.overviewLabel.text = overview
-            //cell.posterView.setImageWithURL(imageUrl!)
             
-            cell.posterView.setImageWithURLRequest(NSURLRequest(URL: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
+            let baseUrl = "http://image.tmdb.org/t/p/w500"
+            
+            if let posterPath = movie["poster_path"] as? String {
+                let imageUrl = NSURL(string: baseUrl + posterPath)
+                cell.posterView.setImageWithURL(imageUrl!)
+                
+                cell.posterView.setImageWithURLRequest(NSURLRequest(URL: imageUrl!), placeholderImage: nil, success: { (request, response, image) in
                     cell.posterView.alpha = 0.0
                     cell.posterView.image = image
-                
+                    
                     // Image fade in
                     UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                            cell.posterView.alpha = 1.0
+                        cell.posterView.alpha = 1.0
                         }, completion: nil)
-
-
-                }, failure: nil)
-
-        }
-    
+                    
+                    
+                    }, failure: nil)
+                }
+            }
+        
+            
         return cell
     }
 
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
+        let cell = sender as! UITableViewCell
+        cell.selectionStyle = .None
+        let indexPath = tableView.indexPathForCell(cell)
+        let movie = movies![indexPath!.row]
+        
+        let detailViewController = segue.destinationViewController as! DetailViewController
+        detailViewController.movie = movie
+        
+        // Get the new view controller using segue.des tinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+
 
 }
